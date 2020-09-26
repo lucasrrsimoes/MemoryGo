@@ -62,31 +62,25 @@ document.addEventListener("DOMContentLoaded", () => {
         i.addEventListener('click', function(){
 
             if (!this.classList.contains('finded')) {
-                if (this.classList.contains('flip-card-click')) {
-                    this.classList.toggle('flip-card-click');
-                }
-                else {
-                    this.classList.toggle('flip-card-click');
-                }
-            }  
+                this.classList.toggle('flip-card-click');
 
-
-            setTimeout(() => {
-                if (idCartaVirada == undefined) {
-                    idCartaVirada = this;
-                } else {
-                    if (idCartaVirada.id.substring(1) == this.id.substring(1)) {
-                        idCartaVirada.classList.add('flip-card-click');
-                        idCartaVirada.classList.add('finded');
-                        this.classList.add('flip-card-click');
-                        this.classList.add('finded');
+                setTimeout(() => {
+                    if (idCartaVirada == undefined) {
+                        idCartaVirada = this;
                     } else {
-                        idCartaVirada.classList.remove('flip-card-click');
-                        this.classList.remove('flip-card-click');
-                    }
-                    idCartaVirada = undefined;                
-                }                
-            }, 2000);                
+                        if (idCartaVirada.id.substring(1) == this.id.substring(1)) {
+                            idCartaVirada.classList.add('flip-card-click');
+                            idCartaVirada.classList.add('finded');
+                            this.classList.add('flip-card-click');
+                            this.classList.add('finded');
+                        } else {
+                            idCartaVirada.classList.remove('flip-card-click');
+                            this.classList.remove('flip-card-click');
+                        }
+                        idCartaVirada = undefined;                
+                    }                
+                }, 2000); 
+            }                 
         })
     }
 });
