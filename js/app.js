@@ -62,30 +62,51 @@ document.addEventListener("DOMContentLoaded", () => {
         i.addEventListener('click', function(){
 
             if (!this.classList.contains('finded')) {
-                this.classList.toggle('flip-card-click');
+                this.classList.toggle('flip-card-click');                
 
-                setTimeout(() => {
+                flipCount++;
+                if (flipCount == 3) {
+                    flipCount = 0;
+                    desviraCartas();
+                } else {
                     if (idCartaVirada == undefined) {
                         idCartaVirada = this;
                     } else {
+                        if (idCartaVirada.id == this.id){
+                            idCartaVirada = undefined;          
+                            flipCount = 0;
+                            desviraCartas();
+                            return;
+                        }
+
                         if (idCartaVirada.id.substring(1) == this.id.substring(1)) {
+                            flipCount = 0;
                             idCartaVirada.classList.add('flip-card-click');
                             idCartaVirada.classList.add('finded');
                             this.classList.add('flip-card-click');
                             this.classList.add('finded');
-                        } else {
-                            idCartaVirada.classList.remove('flip-card-click');
-                            this.classList.remove('flip-card-click');
                         }
                         idCartaVirada = undefined;                
-                    }                
-                }, 2000); 
+                    }  
+                } 
             }                 
         })
     }
 });
 
 var idCartaVirada;
+var flipCount = 0;
+
+function desviraCartas(){
+    const flipCards = document.querySelectorAll('.flip-card');
+    for(var card of flipCards){
+        if (!card.classList.contains('finded')) {
+            if (card.classList.contains('flip-card-click')) {
+                card.classList.remove('flip-card-click');            
+            }
+        }
+    }
+}
 
 
 function shuffle(array) {
@@ -139,7 +160,7 @@ function preencheListItemParMemoria () {
     item.definicao = '';
     listItemParMemoria.push(item);
 	
-    var item = new itemParMemoria();
+/*     var item = new itemParMemoria();
     item.codigo = 7;
     item.termo = 'Princípio Organizativo: POPULAR';
     item.definicao = '';
@@ -161,7 +182,7 @@ function preencheListItemParMemoria () {
     item.codigo = 10;
     item.termo = 'Responsabilidades do Município';
     item.definicao = '';
-    listItemParMemoria.push(item);
+    listItemParMemoria.push(item); */
 
     //DEFINIÇÃO
     var item = new itemParMemoria();
@@ -200,7 +221,7 @@ function preencheListItemParMemoria () {
     item.definicao = 'Visa redistribuir poder e responsabilidade entre os três níveis de governo.';
     listItemParMemoria.push(item);
 	
-    var item = new itemParMemoria();
+/*     var item = new itemParMemoria();
     item.codigo = 7;
     item.termo = '';
     item.definicao = 'Nesse princípio a sociedade deve participar no dia-a-dia do sistema. Para isto, devem ser criados os Conselhos e as Conferências de Saúde, que visam formular estratégias, controlar e avaliar a execução da política de saúde.';
@@ -222,6 +243,6 @@ function preencheListItemParMemoria () {
     item.codigo = 10;
     item.termo = '';
     item.definicao = 'Responsáveis pela execução das ações e serviços de saúde no âmbito do seu território.  O gestor deve aplicar recursos próprios e os repassados pela União e pelo estado. O município formula suas próprias políticas de saúde e também é um dos parceiros para a aplicação de políticas nacionais e estaduais de saúde.';
-    listItemParMemoria.push(item);
+    listItemParMemoria.push(item); */
 
 }
