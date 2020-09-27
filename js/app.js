@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     preencheListItemParMemoria();
 
-    const container = document.querySelectorAll('.container');
+    const container = document.querySelectorAll('.container-card');
 
     //shuffle(listItemParMemoria);
     //shuffle(listItemParMemoria);

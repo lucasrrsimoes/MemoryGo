@@ -1,9 +1,52 @@
-.container {
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;    
+}
+
+body {
+  background-color: teal;
+}
+
+header {
+  background-color: tomato;
+  padding : 10px;
+  color: white;
+}
+
+.sidebar {
+  background-color: teal;
+  position: fixed;
+  width: 20%;
+  height: 100%;
+}
+
+.container-card {
+  background-color: yellowgreen;
+  margin-left: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;    
+}
+
+.flip-card {
+  display: flex;
+  margin: 10px;
+  background-color: turquoise;
+  height: 250px;
+  width: 250px;
+}
+
+
+
+
+
+.container-card {
     display: flex;
     flex-wrap: wrap;    
 }
 
-.container div {
+.container-card div {
     height: 300px;
     width: 300px;
     margin: 0;
