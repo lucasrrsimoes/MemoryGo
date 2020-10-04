@@ -16,9 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     for(var item of listItemParMemoria) {    
-        
-        console.log(item.sequencia);
-
         var elDiv = document.createElement('div');
         elDiv.classList.add('gray');
         
@@ -38,10 +35,10 @@ document.addEventListener("DOMContentLoaded", () => {
         elTextFrontId.classList.add('card-number'); 
         elTextFrontId.innerText = item.sequencia;
         
-        elImgFront = document.createElement('img');
-        elImgFront.src = 'img\\img_avatar.png';
-        elImgFront.alt = 'Avatar'
-        elImgFront.style = 'width:300px;height:300px;';
+        //elImgFront = document.createElement('img');
+        //elImgFront.src = 'img\\img_avatar.png';
+        //elImgFront.alt = 'Avatar'
+        //elImgFront.style = 'width:300px;height:300px;';
 
         if (item.termo) {
             elTextBack = document.createElement('p');
@@ -68,15 +65,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     const flipCard = document.querySelectorAll('.flip-card');
-    var x = 1;
     for(var i of flipCard){
         i.addEventListener('mouseover', function(){              
             if (listItemParMemoria.find(x => x.codigo == this.id).audiodescricao != '' && !this.classList.contains('flip-card-click')) {
                 var audioplayer = document.getElementById('audioplay');
                 audioplayer.src = 'mp3/carta'+listItemParMemoria.find(x => x.codigo == this.id).sequencia+'.m4a';
-                audioplayer.play();
+
+                if (document.getElementById("enableAudioDescricao").checked) {
+                    audioplayer.play();
+                }                
             }
-            x++;
         })
 
         i.addEventListener('click', function(){
@@ -114,7 +112,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (listItemParMemoria.find(x => x.codigo == this.id).audiodescricao != '' && this.classList.contains('flip-card-click')) {
                 var audioplayer = document.getElementById('audioplay');
                 audioplayer.src = listItemParMemoria.find(x => x.codigo == this.id).audiodescricao
-                audioplayer.play();
+                if (document.getElementById("enableAudioDescricao").checked) {
+                    audioplayer.play();
+                } 
             }            
 
 
