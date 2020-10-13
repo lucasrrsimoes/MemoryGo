@@ -1,29 +1,58 @@
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;    
-}
-
 body {
-  background-color: teal;
+  margin: 0px;
+  display: grid;
+  font-family: Arial, sans-serif;
+  grid-gap: 1.3rem;
+  grid-template-areas:
+    "aside header header header"
+    "aside main main main"
+    "aside main main main"
+    "aside footer footer footer";
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto 100vh auto;
 }
 
-header {
-  background-color: tomato;
-  padding : 10px;
-  color: white;
+.title {
+  color: teal;
+  font-family: ink Free;
+  text-align: center;
 }
 
-.sidebar {
-  background-color: teal;
-  position: fixed;
-  width: 20%;
-  height: 100%;
+.o-header {
+  grid-area: header;
+  padding: 1rem;
+  background: #FDFDFD;
+  -webkit-box-shadow: 1px 0px 12px 3px rgba(208,211,217,1);
+  -moz-box-shadow: 1px 0px 12px 3px rgba(208,211,217,1);
+  box-shadow: 1px 0px 12px 3px rgba(208,211,217,1);
 }
 
-.container-card {
-  background-color: yellowgreen;
-  margin-left: 20%;
+.o-aside {
+  grid-area: aside;
+  background: #FDFDFD;
+  -webkit-box-shadow: 1px 0px 12px 3px rgba(208,211,217,1);
+  -moz-box-shadow: 1px 0px 12px 3px rgba(208,211,217,1);
+  box-shadow: 1px 0px 12px 3px rgba(208,211,217,1);
+}
+
+.o-main {
+  grid-area: main;
+  background: #FDFDFD;
+  -webkit-box-shadow: 1px 0px 12px 3px rgba(208,211,217,1);
+  -moz-box-shadow: 1px 0px 12px 3px rgba(208,211,217,1);
+  box-shadow: 1px 0px 12px 3px rgba(208,211,217,1);
+}
+
+.o-footer {
+  grid-area: footer;
+  padding: 2.5rem;
+  background: #FDFDFD;
+  -webkit-box-shadow: 1px 0px 12px 3px rgba(208,211,217,1);
+  -moz-box-shadow: 1px 0px 12px 3px rgba(208,211,217,1);
+  box-shadow: 1px 0px 12px 3px rgba(208,211,217,1);
+}
+
+.container-card {  
   display: flex;
   flex-wrap: wrap;
   height: auto;    
@@ -59,10 +88,6 @@ header {
     width: 300px;
     margin: 0;
 }
-
-.gray {
-    background-color: gray;
- }
 
  /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
@@ -104,12 +129,17 @@ header {
     background-color: #fff;
     color: black;
   }
-  
+ 
   /* Style the back side */
   .flip-card-back {
     background-color: dodgerblue;
     color: white;
     transform: rotateY(180deg);
+  }
+
+  
+  .flip-card-back > h2 {
+    font-size: 16px;
   }
 
   .finded .flip-card-back {
