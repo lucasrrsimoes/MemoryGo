@@ -11,21 +11,34 @@
     <header class="o-header">
         <h1 class="title">learnCAST</h1>
     </header>
-    <aside class="o-aside">
-        <video width="320" height="240" controls>
-            <source src="" type="video/mp4">           
-        </video>        
-        <div class="container-audiodescricao">
+    <aside class="o-aside">        
+        <div class="container-videolibras aside-item">
+            <video width="352" height="640" controls id="videoplay">
+                <source src="" type="video/mp4">           
+            </video>   
+        </div> 
+        
+        <div class="container-audiodescricao aside-item">
             <audio controls id="audioplay">
                 <source src="" type="audio/mpeg">
             </audio>    
         </div> 
-        <div class="container-settings">            
+
+        <div class="container-settings aside-item">            
             <label class="switch">
-                <input type="checkbox" id="enableAudioDescricao" checked>
-                <span class="slider round">Ativar audio descrição</span>
+                <input type="checkbox" id="enableAudioDescricao" >
+                <span class="slider round"></span>
             </label>  
+            <label class="label">Ativar áudio descrição</label>
         </div>
+
+        <div class="container-settings aside-item">            
+            <label class="switch">
+                <input type="checkbox" id="enableVideoDescricao" >
+                <span class="slider round"></span>
+            </label>  
+            <label class="label">Ativar libras</label>
+        </div>        
     </aside>
     <main class="o-main">
 	
