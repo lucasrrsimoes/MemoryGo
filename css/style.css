@@ -3,6 +3,7 @@ body {
   display: grid;
   font-family: Arial, sans-serif;
   grid-gap: 1.3rem;
+  background-color: #EEF0F8;
   grid-template-areas:
     "aside header header header"
     "aside main main main"
@@ -29,7 +30,7 @@ body {
 
 .o-aside {
   grid-area: aside;
-  background: #FDFDFD;
+  background: #1E1E2D;
   -webkit-box-shadow: 1px 0px 12px 3px rgba(208,211,217,1);
   -moz-box-shadow: 1px 0px 12px 3px rgba(208,211,217,1);
   box-shadow: 1px 0px 12px 3px rgba(208,211,217,1);
@@ -68,7 +69,7 @@ body {
 
 
 .card-number {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: Poppins;
   font-weight: 400;
   color: #050011;
   position: absolute;
